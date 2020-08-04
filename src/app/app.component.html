@@ -1,14 +1,35 @@
-<div *ngIf="!isSignedIn">
+<div *ngIf="!isSignedIn" align="center">
   <h2>Sign up</h2>
-  <input type="text" #emailSignup />
-  <input type="text" #passwordSignup />
-  <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Signup</button>
+
+  <mat-form-field floatLabel="auto" apperance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput required type="text" #emailSignup />
+  </mat-form-field>
+  <br>
+  <mat-form-field floatLabel="auto" apperance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required type="text" #passwordSignup />
+  </mat-form-field>
+  <br>
+
+  <button fxFlexAlign="end" color="primary" mat-raised-button
+    (click)="onSignup(emailSignup.value,passwordSignup.value)">Signup</button>
 </div>
+<br>
 <hr>
-<div *ngIf="!isSignedIn">
+<div *ngIf="!isSignedIn" align="center">
   <h2>Sign In</h2>
-  <input type="text" #email />
-  <input type="text" #password />
-  <button (click)="onSignin(email.value,password.value)">Signin</button>
+  <mat-form-field floatLabel="auto" apperance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput required type="text" #email />
+  </mat-form-field>
+  <br>
+  <mat-form-field floatLabel="auto" apperance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required type="text" #password />
+  </mat-form-field>
+  <br>
+  <button fxFlexAlign="end" color="primary" mat-raised-button
+    (click)="onSignin(email.value,password.value)">Signin</button>
 </div>
 <app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>
